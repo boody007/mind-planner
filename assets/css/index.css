@@ -1,0 +1,65 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0c0c16 !important;
+    height: 100vh;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}   
+
+@keyframes spin {
+    0% {
+        --angle: 0deg;
+    }
+    100% {
+        --angle: 360deg;
+    }
+}
+
+.test {
+    border: 34px solid;
+    outline: 3px solid #0c0c16;
+    outline-offset: -28px;
+    padding: 20px;
+    border-radius: 25px;
+    margin: 0 auto;
+    position: relative;
+    width: 20%;
+    text-align: center;
+    color: #fff;
+    border-image: linear-gradient(var(--angle),
+    #000066 0%,
+    #57006b 11%,
+    #8a0067 22%,
+    #b8005f 33%,
+    #db0054 44%,
+    #f63741 56%,
+    #ff692e 67%,
+    #ff970f 78%,
+    #ffbf00 89%,
+    #ffea00 100%);
+    border-image-slice: 1;
+    animation: spin 5s linear infinite;
+}
+
+.test p {
+    padding-top: 30px;
+    color: #5e6068;
+    font-weight: bold;
+}
