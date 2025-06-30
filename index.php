@@ -49,7 +49,14 @@
                                 # Check no error before running statement
                                 if (!isset($error)) {
                                     try {
-                                        $stmt = $connection->prepare("INSERT INTO objectives VALUES (:id, :title, :content, :image, :priority, :date_time, :mission_id)");
+                                        # Getting the last order
+                                        $order_stmt = $connection->prepare('SELECT "order" FROM objectives ORDER BY "order" DESC LIMIT 1');
+                                        $order_result = $order_stmt->execute();
+                                        $last_order = $order_result->fetchArray(SQLITE3_ASSOC);
+                                        $last_order = $last_order['order'] ?? 0; // Default to 0 if no rows found
+                                        $new_order = $last_order + 1; // Increment the last order by
+                                        # Inserting the new objective
+                                        $stmt = $connection->prepare("INSERT INTO objectives VALUES (:id, :title, :content, :image, :priority, :date_time, :mission_id, :order)");
                                         $stmt->bindValue(':id', NULL, SQLITE3_INTEGER);
                                         $stmt->bindValue(':title', $title, SQLITE3_TEXT);
                                         $stmt->bindValue(':content', $content, SQLITE3_TEXT);
@@ -57,6 +64,7 @@
                                         $stmt->bindValue(':priority', $priority, SQLITE3_TEXT);
                                         $stmt->bindValue(':date_time', date("d/m/Y h:i:s A"), SQLITE3_TEXT);
                                         $stmt->bindValue(':mission_id', $mission_id, SQLITE3_INTEGER);
+                                        $stmt->bindValue(':order', $new_order, SQLITE3_INTEGER);
                                         $stmt->execute();
                                         $success = "New objective $title added successfuly";
                                     }
@@ -321,7 +329,7 @@
                         $missions_stmt->bindValue(":id", $campaign['id']);
                         $missions_result = $missions_stmt->execute();
                         # Query in objectives
-                        $objectives_stmt = $connection->prepare("SELECT * FROM objectives ORDER BY CASE priority WHEN 'danger' THEN 1 WHEN 'warning' THEN 2 WHEN 'primary' THEN 3 WHEN 'dark' THEN 4 END");
+                        $objectives_stmt = $connection->prepare('SELECT * FROM objectives ORDER BY CASE priority WHEN "danger" THEN 1 WHEN "warning" THEN 2 WHEN "primary" THEN 3 WHEN "dark" THEN 4 END, "order" ASC');
                         $objectives_result = $objectives_stmt->execute();
                         $all_objectives = [];
                         while ($objective = $objectives_result->fetchArray(SQLITE3_ASSOC)) {
