@@ -80,7 +80,7 @@ $(function () {
                         // Looping on objects
                         for (var step of steps) {
                             stepsView.querySelector('ul').innerHTML += `<div class='step-box'>
-                                <a ${(step.link != null && step.link != "") ? "href='" + step.link + "' " +  "target='_blank'" : ""} class='context-trigger' data-target-type='step'><li ${(step.image != null) ? `class='image-container' style='background-image:url(${step.image}) !important'` : ""}><strong>${step.title}</strong><br><br><p class="lead ${(step.image != null) ? "mb-3" : ""}">${step.content}</p></li></a>
+                                <a ${(step.link != null && step.link != "") ? "href='" + step.link + "' " +  "target='_blank'" : ""} class='context-trigger' data-target-type='step'><li ${(step.image != null) ? `class='image-container' style='background-image:url(${step.image}) !important'` : ""}><div class="mask"></div><strong>${step.title}</strong><br><br><p class="lead ${(step.image != null) ? "mb-3" : ""}">${step.content}</p></li></a>
                                 <div class='step-actions' data-step-id='${step.id}' data-step-title='${step.title}'>
                                     <div class='edit' id='step-edit'>Edit</div>
                                     <div class='delete' id='step-delete'>Delete</div>

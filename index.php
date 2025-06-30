@@ -412,7 +412,7 @@
                             <div class="modal-footer">
                                 <p class="lead"></p>
                                 <div class="btn btn-dark" data-bs-dismiss="modal">Close</div>
-                                <input type="submit" value="Create" class="btn btn-primary" id="create-objective" style="transform:translateY(2.5px);">
+                                <input type="submit" value="Create" class="btn" id="create-objective" style="transform:translateY(2.5px);">
                             </div>
                         </form>
                     </div>
@@ -461,7 +461,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
-                            <input type="submit" value="Create" class="btn btn-primary" style="transform: translateY(2.5px);" onclick="$('#mission-creation-form').submit()">
+                            <input type="submit" value="Create" class="btn" style="transform: translateY(2.5px);" onclick="$('#mission-creation-form').submit()">
                         </div>
                     </div>
                 </div>
@@ -489,7 +489,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
-                                <input type="submit" value="Create" class="btn btn-primary">
+                                <input type="submit" value="Create" class="btn">
                             </div>
                         </form>
                     </div>
@@ -521,7 +521,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary step-creator" data-obj-id="" data-obj-name="" data-modal-target="#stepCreation"><i class="fa-solid fa-circle-plus"></i> New Step</button>
+                            <button type="button" class="btn step-creator" data-obj-id="" data-obj-name="" data-modal-target="#stepCreation"><i class="fa-solid fa-circle-plus"></i> New Step</button>
                         </div>
                     </div>
                 </div>
@@ -549,7 +549,7 @@
                             <input type="hidden" name="location_campaign" value="<?= $campaign['id'] ?>">
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" onclick="$(this).parent().parent().submit()">Create</button>
+                            <button type="button" class="btn" onclick="$(this).parent().parent().submit()">Create</button>
                         </div>
                     </form>
                 </div>

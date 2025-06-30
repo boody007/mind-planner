@@ -235,6 +235,38 @@ img.source-icon {
     text-align: center;
 }
 
+.modal .modal-content, .modal .modal-content input:not(input[type="submit"]), .modal .modal-content textarea, .modal .modal-content select {
+	background-color: rgba(0,0,0,0.44);
+	backdrop-filter: blur(14px);
+}
+
+.modal .modal-content input[type="submit"].btn, .modal .modal-content button:last-child {
+	color: rgb(103, 91, 192);
+	background-color: transparent;
+	font-weight: bold;
+}
+
+.modal .modal-content button:last-child i {
+	color: rgb(103, 91, 192);
+}
+
+.modal .modal-content .btn, .modal .modal-content .btn-dark {
+	border: none;
+	background-color: transparent;
+}
+
+.modal .modal-content .modal-footer .btn-dark:hover {
+	background-color: rgba(0,0,0,0.4)
+}
+
+.modal .modal-content input[type="submit"].btn:hover, .modal .modal-content button:last-child:hover {
+	background-color: rgb(103, 91, 192, 0.34) !important;
+}
+
+input[type="text"], input[type="password"], select, textarea {
+	border-radius: 25px !important;
+}
+
 .form-control:focus, .form-select:focus, .form-check-input:focus {
     border-color: var(--filled-color) !important;
     box-shadow: 0 0 0 0.2rem var(--low-color) !important;
@@ -863,6 +895,23 @@ img.source-icon {
     min-width: 350px !important;
 }
 
+.modal#objectiveShow .modal-body .steps ul li {
+    position: relative;
+    width: auto;
+}
+
+.modal#objectiveShow .modal-body .steps ul li .mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(3px);
+    border-radius: 25px;
+    z-index: -1;
+}
+
 .modal#objectiveShow .modal-body .steps .step-box .step-actions {
     display: flex;
     margin-left: -21px;
@@ -1017,14 +1066,14 @@ img.source-icon {
 
 .modal#objectiveShow .modal-body .steps ul li {
     margin-bottom: -10px;
-    background-color: var(--filled-color);
     padding: 15px;
     padding-bottom: 0 !important;
     border-radius: 25px;
     margin-left: -20px;
     color: white;
     user-select: none;
-    background-color: var(--muted-background);
+    background-color: rgba(0,0,0,0.03);
+	backdrop-filter: blur(10px);
     display: inline-block;
     min-width: 200px;
     scale: 0.8;
