@@ -278,7 +278,8 @@ input[type="text"], input[type="password"], select, textarea {
 }
 
 .content .objectives .card.objective.text-bg-dark:not(.objective.newest-add):hover {
-    background-color: var(--bs-dark-bg-subtle) !important;
+    /* background-color: var(--bs-dark-bg-subtle) !important; */
+	background-color: #000 !important;
 }
 
 .content .objectives .card.objective.text-bg-warning:not(.objective.newest-add):hover {
